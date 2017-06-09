@@ -15,9 +15,6 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
     @yield('styles')
-
-    <link href="/css/jquery.dataTables.css" rel="stylesheet">
-    <link href="/css/dataTables.bootstrap.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top">
@@ -58,9 +55,5 @@
     <script src="/js/jquery-3.1.0.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     @yield('scripts')
-
-    <script src="/js/jquery.dataTables.min.js"></script>
-    <script src="/js/dataTables.bootstrap.min.js"></script>
-    <script src="/js/custom.js"></script>
 </body>
 </html>
