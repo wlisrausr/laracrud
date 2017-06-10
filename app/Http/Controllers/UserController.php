@@ -22,9 +22,9 @@ class UserController extends Controller
             return Datatables::of($users)
               ->addColumn('action', function($user){
                   return view('datatable._action', [
-                      'model'           => $user,
-                      'form_url'        => route('users.destroy', $user->id),
-                      'edit_url'        => route('users.edit', $user->id)
+                      'model'    => $user,
+                      'form_url' => route('users.destroy', $user->id),
+                      'edit_url' => route('users.edit', $user->id)
                   ]);
               })->make(true);
         }
