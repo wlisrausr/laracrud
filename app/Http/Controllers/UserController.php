@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Yajra\Datatables\Html\Builder;
 use Yajra\Datatables\Datatables;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -101,6 +102,14 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        Session::flash("flash_notification", [
+            "level"   => "success",
+            "message" => "Successfully delete user"
+        ]);
+
+        return redirect()->route('users.index');
     }
 }
