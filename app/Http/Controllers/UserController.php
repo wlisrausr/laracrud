@@ -156,7 +156,7 @@ class UserController extends Controller
 
         Session::flash("flash_notification", [
             "level"   => "success",
-            "message" => "Successfully delete user"
+            "message" => "Successfully deleted user"
         ]);
 
         return redirect()->route('users.index');
