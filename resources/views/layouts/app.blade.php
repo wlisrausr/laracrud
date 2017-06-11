@@ -37,7 +37,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!--Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                  <li><a href="{{ route('users.index') }}">User</a></li>
+                  <li><a href="{{ route('users.index') }}"><i class="fa fa-users" aria-hidden="true"></i> User</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
