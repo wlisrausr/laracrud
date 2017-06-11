@@ -25,6 +25,7 @@ class UserController extends Controller
                   return view('datatable._action', [
                       'model'    => $user,
                       'form_url' => route('users.destroy', $user->id),
+                      'show_url' => route('users.show', $user->id),
                       'edit_url' => route('users.edit', $user->id)
                   ]);
               })->make(true);
@@ -36,7 +37,9 @@ class UserController extends Controller
             ->addColumn(['data'=>'address', 'name'=>'address', 'title'=>'Address'])
             ->addColumn(['data'=>'action', 'name'=>'action', 'title'=>'', 'orderable'=>false, 'searchable'=>false]);
 
-        return view('users.index')->with(compact('html'));
+        $pageTitle = 'User List';
+
+        return view('users.index')->with(compact('html', 'pageTitle'));
     }
 
     /**
@@ -46,7 +49,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $pageTitle = 'Add User';
+
+        return view('users.create')->with(compact('pageTitle'));
     }
 
     /**
@@ -57,7 +62,26 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+          'name' => 'required',
+          'address' => 'required',
+          'phone' => 'required|unique:users'
+        ]);
+
+        $user = new User;
+
+        $user->name = $request->name;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+
+        $user->save();
+
+        Session::flash("flash_notification", [
+            "level"   => "success",
+            "message" => "Successfully add user"
+        ]);
+
+        return redirect()->route('users.index');
     }
 
     /**
@@ -79,7 +103,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $pageTitle = 'Edit User';
+
+        return view('users.edit')->with(compact('user', 'pageTitle'));
     }
 
     /**
