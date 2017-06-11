@@ -92,7 +92,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        $pageTitle = 'User Detail';
+
+        return view('users.show')->with(compact('user', 'pageTitle'));
     }
 
     /**
