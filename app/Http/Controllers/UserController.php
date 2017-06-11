@@ -78,7 +78,7 @@ class UserController extends Controller
 
         Session::flash("flash_notification", [
             "level"   => "success",
-            "message" => "Successfully add user"
+            "message" => "Successfully added user"
         ]);
 
         return redirect()->route('users.index');
@@ -118,7 +118,26 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+          'name' => 'required',
+          'address' => 'required',
+          'phone' => 'required|unique:users,phone,' . $id
+        ]);
+
+        $user = User::find($id);
+
+        $user->name = $request->name;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+
+        $user->save();
+
+        Session::flash("flash_notification", [
+            "level"   => "success",
+            "message" => "Successfully updated user"
+        ]);
+
+        return redirect()->route('users.index');
     }
 
     /**
