@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-  User List
+  {{ $pageTitle }}
 @endsection
 
 @section('styles')
@@ -15,11 +15,11 @@
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h2 class="panel-title">User List</h2>
+            <h2 class="panel-title"><i class="fa fa-users" aria-hidden="true"></i> {{ $pageTitle }}</h2>
           </div>
 
           <div class="panel-body">
-            <p><a class="btn btn-sm btn-primary" href="{{ route('users.create') }}"><i class="fa fa-user-plus"></i> Add</a></p>
+            <p><a class="btn btn-sm btn-primary" href="{{ route('users.create') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> Add</a></p>
 
             {!! $html->table(['class'=>'table-striped']) !!}
           </div>
