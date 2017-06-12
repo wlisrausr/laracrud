@@ -1,4 +1,4 @@
-<p align="center"><img src="https://preview.ibb.co/f9707a/Jun_12_2017_14_03_33.gif"></p>
+<p align="center"><img src="https://preview.ibb.co/n7S3tF/LaraCRUD.png"></p>
 
 ## Usage
 
