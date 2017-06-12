@@ -1,3 +1,5 @@
+<p align="center"><img src="https://preview.ibb.co/n7S3tF/LaraCRUD.png"></p>
+
 ## Usage
 
 - Clone/download this repo.
